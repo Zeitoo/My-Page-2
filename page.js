@@ -270,3 +270,6 @@ Array.from(document.querySelectorAll(".header-box .nav-list > *")).forEach(
      }
 );
 
+window.addEventListener ("touchmove", () => {
+     console.log(true)
+})
