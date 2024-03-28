@@ -203,7 +203,6 @@ window.addEventListener("touchend", (event) => {
                }, 200);
 
                window.isScrolable = !window.isScrolable;
-               sectionFocus(scrollIndex);
           }
      } else if (Math.floor(touchStart - touchEnd) < 10) {
           if (scrollIndex > 0 && window.isScrolable) {
@@ -221,7 +220,6 @@ window.addEventListener("touchend", (event) => {
           }, 200);
 
           window.isScrolable = !window.isScrolable;
-          sectionFocus(scrollIndex);
      }
 });
 
@@ -333,6 +331,7 @@ function mobileName2() {
 
                top: "75%",
                left: 30,
+               opacity: 1,
                color: "#e3fdfd",
                rotateY: "52deg",
                rotateX: "-35deg",
