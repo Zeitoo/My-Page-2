@@ -1,5 +1,4 @@
-html {
-}
+
 :root {
      --text-dark: #0a1c31;
      --verde: #00ff94;
@@ -86,7 +85,6 @@ main .section-1 .text-content h2 .dot {
      aspect-ratio: 1/1;
      background-color: white;
 }
-
 main .section-1 .name {
      color: black;
      display: flex;
@@ -96,16 +94,13 @@ main .section-1 .name {
      left: 250px;
      font-size: 12em;
 }
-
 .scroll > img {
      width: 10px;
 }
-
 main .section-1 .name > * {
      transform: rotateX(90deg);
      font-weight: 800;
 }
-
 main .image-content {
      position: relative;
      width: 250px;
@@ -164,8 +159,6 @@ main .section-2 .text-content {
      flex-direction: column;
      gap: 30px;
 }
-main .section-2 .text-content-2 p {
-}
 main .section-2 .text-content-2 {
      mix-blend-mode: multiply;
      z-index: 2;
@@ -195,15 +188,12 @@ main .dots .sub-dot {
      aspect-ratio: 1/1;
      background-color: white;
 }
-
 main .green .sub-dot {
      background-color: var(--verde) !important;
 }
-
 main .blue .sub-dot {
      background-color: var(--azul-3) !important;
 }
-
 main > section .bols {
      position: absolute;
      width: 70px;
@@ -212,7 +202,6 @@ main > section .bols {
      gap: 5px;
      height: 20px;
 }
-
 main > section .bols > * {
      width: 10px;
      aspect-ratio: 1/1;
@@ -221,15 +210,12 @@ main > section .bols > * {
      opacity: 0.6;
      border: 2px solid var(--text-dark);
 }
-
 main .section-3 .bols.green > * {
      border: 1px solid var(--verde) !important;
 }
-
 main .section-3 {
      position: relative;
 }
-
 main .section-3 .bg {
      position: absolute;
      left: 0;
@@ -238,16 +224,13 @@ main .section-3 .bg {
      width: 300px;
      border-right: 1px solid black;
      border-bottom: 1px solid black;
-
 }
-
 main .section-1 .dot-0 {
      z-index: -1;
      mix-blend-mode: difference;
      top: 12%;
      left: 58%;
 }
-
 main .section-1 .dot-1 {
      top: -20%;
      left: 15%;
@@ -262,12 +245,10 @@ main section .dot-3 {
      left: 57%;
      mix-blend-mode: exclusion;
 }
-
 main section .dot-4 {
      bottom: 10%;
      right: 5%;
 }
-
 main section .bols-5 {
      bottom: 10%;
 }
@@ -294,7 +275,6 @@ main > section .bols-4 {
 main > .section-3 .bols > * {
      border: 2px solid white !important;
 }
-
 main > section .bols > * {
      width: 10px;
      aspect-ratio: 1/1;
@@ -303,7 +283,6 @@ main > section .bols > * {
      opacity: 0.6;
      border: 2px solid var(--text-dark);
 }
-
 main section .traco {
      height: 40px;
      user-select: none;
@@ -344,7 +323,6 @@ main section .traco-5 {
      rotate: 45deg;
      right: -5%;
 }
-
 main .section-2 .traco img {
      scale: 2;
      rotate: 45deg;
@@ -383,8 +361,6 @@ main .section-3 .text-content p {
 main .section-3 .image-content {
      z-index: -1;
      position: relative;
-}
-main .section-3 .image-content .back {
 }
 main .section-4 .text-content {
      width: 35%;
@@ -455,21 +431,17 @@ main .section-4 .dots {
      top: 50px;
      left: 300px;
 }
-
 main .section-4 .sub-dot {
      background-color: var(--darkblue);
 }
-
 main .section-4 .bols-6 {
      left: 100px;
      bottom: 100px;
 }
-
 main .section-4 .bols-7 {
      top: 120px;
      left: 50px;
 }
-
 aside {
      --color: var(--darkblue);
      width: 50px;
@@ -478,11 +450,9 @@ aside {
      bottom: 20px;
      right: 10px;
 }
-
 aside.green {
      --color: var(--verde);
 }
-
 aside ul {
      height: inherit;
      display: flex;
@@ -553,16 +523,26 @@ footer .footer ul li {
      list-style: none;
 }
 
-@media (min-width: 750px) {
-     
-}
-
 @media (max-width: 740px) {
      .section-1 .container {
-          flex-direction: column; 
+          flex-direction: column;
           align-items: center;
      }
-
+     .section-1 .bg {
+          flex-direction: column;
+     }
+     .section-1 .bg-1 {
+          width: 100% !important;
+          flex-grow: 0 !important;
+     }
+     .section-1 .bg-4 {
+          flex-grow: 1 !important;
+          height: 30% !important;
+     }
+     .section-1 .name {
+          left: 0 !important;
+          font-size: 6em !important;
+     }
      .section-1 .text-content h2 {
           font-size: 2em !important;
           margin: 20px 0;
@@ -571,29 +551,24 @@ footer .footer ul li {
           font-size: 1em;
           width: 100% !important;
      }
-
      .section-1 .image-content {
           width: 60%;
           height: 200px;
-          margin-left: 140px;
-          margin-top: 60px;
+          
+          translate: 0px 80px;
           --height: 218px;
      }
-
      .section-1 .image-content .back {
           height: var(--height);
           transform: translate(15px, 15px);
      }
-
      .section-1 .image-content .border {
           transform: translate(30px, 30px);
           height: var(--height);
      }
-
      .section-2 .container {
           flex-direction: column;
      }
-
      .section-2 .container > * {
           width: 100% !important;
           position: static !important;
@@ -602,41 +577,65 @@ footer .footer ul li {
           margin: 20px 0;
           padding: 0px !important;
      }
-
-     .section-3 .container{
+     .section-3 .container {
           flex-direction: column;
      }
-
      .section-3 .container .text-content {
           width: 100%;
      }
-
      .section-3 .container .image-content {
           display: none;
           mix-blend-mode: difference;
      }
-
-     .section-4 .container{
+     .section-4 .container {
           flex-direction: column;
           align-items: flex-start !important;
      }
-
      .section-4 .text-content {
           width: 100% !important;
      }
      .section-4 .gallery-wrapper {
           display: none !important;
      }
-
      footer div.links {
           display: flex !important;
           flex-direction: column;
           gap: 10px;
      }
-     /* problemas com js gsap
-     .section-1 .name {
-          font-size: 10em !important;
-     }*/
-
-
+     aside {
+          height: 150px;
+          display: flex;
+          justify-content: center;
+          position: fixed;
+          bottom: 20px;
+          right: 0px;
+     }
+     aside li {
+          width: 20px;
+     }
+     .section-1 .bols-0 {
+          top: 10%;
+     }
+     .section-2 .bols {
+          display: none;
+     }
+     .section-2 .traco-3 {
+          display: none;
+     }
+     main .section-4 .dots {
+          top: 82px;
+          left: 214px;
+     }
+     header {
+          padding: 20px 20px !important;
+     }
+     header .icon span:nth-child(1) {
+          width: 70% !important;
+     }
+     header nav .icon.expanded span {
+          width: 70% !important;
+     }
+     header .language {
+          right: 20% !important;
+     }
 }

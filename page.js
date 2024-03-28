@@ -26,8 +26,6 @@ Array.from(tracos).forEach((element, index) => {
 
 // Animations
 
-gsap.from("main .section-1 .bg-1", { width: "2%", duration: 1, delay: 1.7 });
-
 gsap.from("main .section-1 .text-content", {
      opacity: 0,
      duration: 1,
@@ -47,12 +45,44 @@ gsap.to(".name > *", {
      ease: "none",
 });
 
-gsap.to(".name", {
-     top: -100,
-     zIndex: -1,
-     duration: 0.3,
-     delay: 1.5,
-});
+if (window.innerWidth > 550) {
+     gsap.from("main .section-1 .bg-1", {
+          width: "2%",
+          duration: 1,
+          delay: 1.7,
+     });
+     gsap.to(".name", {
+          top: -100,
+          zIndex: -1,
+          duration: 0.3,
+          delay: 1.5,
+     });
+     gsap.from("main .section-1 .image-content", {
+          opacity: 0,
+          duration: 0.6,
+          y: 10,
+          delay: 3,
+     });
+} else {
+     gsap.from("main .section-1 .bg-1", {
+          height: "2%",
+          duration: 1,
+          delay: 1.4,
+     });
+     gsap.to(".name", {
+          top: 40,
+          zIndex: -1,
+          duration: 0.3,
+          delay: 1.5,
+     });
+
+     gsap.from("main .section-1 .image-content", {
+          opacity: 0,
+          duration: 0.6,
+          y: 10,
+          delay: 1.8,
+     });
+}
 
 gsap.from("header", { opacity: 0, duration: 0.6, delay: 2 });
 
@@ -68,12 +98,6 @@ gsap.from(".bols", {
 
 gsap.from(".traco", { opacity: 0, duration: 0.5, delay: 3 });
 gsap.from(".dots", { opacity: 0, duration: 0.5, delay: 3, stagger: 0.5 });
-gsap.from("main .section-1 .image-content", {
-     opacity: 0,
-     duration: 0.6,
-     y: 10,
-     delay: 3,
-});
 
 // Srcolling
 
@@ -83,42 +107,121 @@ setTimeout(() => {
      window.isScrolable = true;
 }, 2000);
 
-window.addEventListener("mousewheel", (event) => {
-     if (event.wheelDeltaY < 0 && scrollIndex <= 3) {
-          if (window.isScrolable) {
-               scrollIndex = scrollIndex + 1;
+function scrollDown() {
+     if (window.isScrolable) {
+          scrollIndex = scrollIndex + 1;
+          Array.from(document.querySelectorAll(`.section`))[
+               scrollIndex
+          ].scrollIntoView({
+               behavior: "smooth",
+          });
+
+          window.isScrolable = !window.isScrolable;
+          setTimeout(() => {
+               eval(`name${scrollIndex + 1}()`);
+               window.isScrolable = !window.isScrolable;
+          }, 200);
+          asideFocus(scrollIndex);
+          sectionFocus(scrollIndex);
+     }
+}
+
+function scrollUp() {
+     if (window.isScrolable) {
+          scrollIndex = scrollIndex - 1;
+
+          Array.from(document.querySelectorAll(`.section`))[
+               scrollIndex
+          ].scrollIntoView({
+               behavior: "smooth",
+          });
+          setTimeout(() => {
+               eval(`name${scrollIndex + 1}()`);
+               window.isScrolable = !window.isScrolable;
+          }, 200);
+
+          window.isScrolable = !window.isScrolable;
+          asideFocus(scrollIndex);
+          sectionFocus(scrollIndex);
+     }
+}
+
+if (window.innerWidth > 550) {
+     window.addEventListener("mousewheel", (event) => {
+          if (event.wheelDeltaY < 0 && scrollIndex <= 3) {
+               scrollDown();
+          } else if (event.wheelDeltaY > 0 && scrollIndex > 0) {
+               scrollUp();
+          }
+     });
+
+     window.addEventListener("keyup", (event) => {
+          if (
+               event.key.replace("Arrow", "") == "Down" ||
+               event.key.replace("Arrow", "") == "Right"
+          ) {
+               if (scrollIndex <= 3) {
+                    scrollDown();
+               }
+          } else if (
+               event.key.replace("Arrow", "") == "Up" ||
+               event.key.replace("Arrow", "") == "Left"
+          ) {
+               if (scrollIndex > 0) {
+                    scrollUp();
+               }
+          }
+     });
+}
+
+/* Cenas de mobile */
+let touchStart = undefined;
+let touchEnd = undefined;
+
+window.addEventListener("touchstart", (event) => {
+     touchStart = event.touches[0].screenY;
+});
+
+window.addEventListener("touchmove", (event) => {
+     touchEnd = event.touches[0].clientY;
+});
+
+window.addEventListener("touchend", (event) => {
+     if (Math.floor(touchStart - touchEnd) > 150) {
+          if (scrollIndex < 4 && window.isScrolable) {
+               scrollIndex++;
+
                Array.from(document.querySelectorAll(`.section`))[
                     scrollIndex
                ].scrollIntoView({
                     behavior: "smooth",
                });
 
-               window.isScrolable = !window.isScrolable;
                setTimeout(() => {
-                    eval(`name${scrollIndex + 1}()`);
-                    window.isScrolable = !window.isScrolable;
-               }, 200);
-               asideFocus(scrollIndex);
-               sectionFocus(scrollIndex);
-          }
-     } else if (event.wheelDeltaY > 0 && scrollIndex > 0) {
-          if (window.isScrolable) {
-               scrollIndex = scrollIndex - 1;
-
-               Array.from(document.querySelectorAll(`.section`))[
-                    scrollIndex
-               ].scrollIntoView({
-                    behavior: "smooth",
-               });
-               setTimeout(() => {
-                    eval(`name${scrollIndex + 1}()`);
+                    eval(`mobileName${scrollIndex + 1}()`);
                     window.isScrolable = !window.isScrolable;
                }, 200);
 
                window.isScrolable = !window.isScrolable;
-               asideFocus(scrollIndex);
                sectionFocus(scrollIndex);
           }
+     } else if (Math.floor(touchStart - touchEnd) < 10) {
+          if (scrollIndex > 0 && window.isScrolable) {
+               scrollIndex--;
+          }
+          Array.from(document.querySelectorAll(`.section`))[
+               scrollIndex
+          ].scrollIntoView({
+               behavior: "smooth",
+          });
+
+          setTimeout(() => {
+               eval(`mobileName${scrollIndex + 1}()`);
+               window.isScrolable = !window.isScrolable;
+          }, 200);
+
+          window.isScrolable = !window.isScrolable;
+          sectionFocus(scrollIndex);
      }
 });
 
@@ -204,6 +307,73 @@ function name4() {
 
 function name5() {}
 
+function mobileName1() {
+     headerColor(colors[0]);
+     scrollIndex = 0;
+     gsap.to(".name", {
+          rotateZ: "0deg",
+          rotateX: "0deg",
+          rotateY: "0deg",
+          color: "black",
+          top: 70,
+          left: 0,
+     });
+     asideFocus(0);
+}
+
+function mobileName2() {
+     headerColor(colors[1]);
+     asideFocus(1);
+     scrollIndex = 1;
+     gsap.to(
+          ".name",
+
+          {
+               duration: 0.5,
+
+               top: "75%",
+               left: 30,
+               color: "#e3fdfd",
+               rotateY: "52deg",
+               rotateX: "-35deg",
+               rotateZ: "-40deg",
+          }
+     );
+}
+
+function mobileName3() {
+     headerColor(colors[2]);
+     asideFocus(2);
+     scrollIndex = 2;
+     gsap.to(".name", {
+          left: 550,
+          top: 230,
+          opacity: 0,
+          color: "var(--verde)",
+          rotateZ: "47deg",
+          rotateY: "58deg",
+          rotateX: "22deg",
+     });
+}
+
+function mobileName4() {
+     headerColor(colors[3]);
+     asideFocus(3);
+     scrollIndex = 3;
+     gsap.to(".name", {
+          color: "var(--darkblue)",
+          duration: 0.5,
+          rotateZ: "339deg",
+          rotateY: "31deg",
+          opacity: 1,
+          rotateX: "323deg",
+          left: 0,
+          top: "72%",
+     });
+}
+
+function mobileName5() {}
+
 document.querySelector(".header-title").addEventListener("click", () => {
      window.document
           .querySelector(".section-1")
@@ -216,6 +386,7 @@ function headerColor(color) {
      let menuIcon = document.querySelectorAll("header nav span");
 
      headerTitle.style.color = color;
+     document.querySelector("header .language").style.color = color;
      Array.from(menuIcon).forEach((element) => {
           element.style.backgroundColor = color;
      });
@@ -269,7 +440,3 @@ Array.from(document.querySelectorAll(".header-box .nav-list > *")).forEach(
           });
      }
 );
-
-window.addEventListener ("touchmove", () => {
-     console.log(true)
-})
