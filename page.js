@@ -253,7 +253,6 @@ function name1() {
      });
      asideFocus(0);
 }
-
 function name2() {
      headerColor(colors[1]);
      asideFocus(1);
@@ -270,10 +269,10 @@ function name2() {
                rotateY: "52deg",
                rotateX: "-35deg",
                rotateZ: "-40deg",
+               opacity: 1,
           }
      );
 }
-
 function name3() {
      headerColor(colors[2]);
      asideFocus(2);
@@ -283,11 +282,12 @@ function name3() {
           top: 230,
           color: "var(--verde)",
           rotateZ: "47deg",
+          opacity: 0,
           rotateY: "58deg",
+          fontSize: "12em",
           rotateX: "22deg",
      });
 }
-
 function name4() {
      headerColor(colors[3]);
      asideFocus(3);
@@ -295,16 +295,15 @@ function name4() {
      gsap.to(".name", {
           color: "var(--darkblue)",
           duration: 0.5,
-          rotateZ: "339deg",
-          rotateY: "31deg",
-          rotateX: "323deg",
-          left: 0,
-          top: 400,
+          rotateZ: "0deg",
+          rotateY: "0deg",
+          rotateX: "0deg",
+          fontSize: "5em",
+          left: 50,
+          top: 500,
      });
 }
-
 function name5() {}
-
 function mobileName1() {
      headerColor(colors[0]);
      scrollIndex = 0;
@@ -318,7 +317,6 @@ function mobileName1() {
      });
      asideFocus(0);
 }
-
 function mobileName2() {
      headerColor(colors[1]);
      asideFocus(1);
@@ -339,7 +337,6 @@ function mobileName2() {
           }
      );
 }
-
 function mobileName3() {
      headerColor(colors[2]);
      asideFocus(2);
@@ -354,7 +351,6 @@ function mobileName3() {
           rotateX: "22deg",
      });
 }
-
 function mobileName4() {
      headerColor(colors[3]);
      asideFocus(3);
@@ -370,7 +366,6 @@ function mobileName4() {
           top: "72%",
      });
 }
-
 function mobileName5() {}
 
 document.querySelector(".header-title").addEventListener("click", () => {
@@ -390,7 +385,6 @@ function headerColor(color) {
           element.style.backgroundColor = color;
      });
 }
-
 function asideFocus(index) {
      const listItems = document.querySelectorAll("aside li");
 
@@ -409,7 +403,6 @@ function asideFocus(index) {
           );
      }
 }
-
 function sectionFocus(index) {
      const sectionElements = document.querySelectorAll(
           `.section-${index + 1} > *`

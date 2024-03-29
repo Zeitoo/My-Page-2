@@ -1,4 +1,3 @@
-
 :root {
      --text-dark: #0a1c31;
      --verde: #00ff94;
@@ -370,10 +369,11 @@ main .section-4 .text-content {
      gap: 20px;
 }
 .btn {
+     background-color: white;
      overflow: hidden;
      background-color: transparent;
      border: 1px solid;
-     padding: 10px 15px;
+     padding: 10px 25px;
      font-weight: 700;
      position: relative;
      cursor: pointer;
@@ -478,51 +478,6 @@ aside li.active {
      background-color: transparent;
      border: 1px solid var(--color);
 }
-footer {
-     background-color: var(--text-dark);
-     height: 100vh;
-     position: relative;
-}
-footer * {
-     text-decoration: none;
-     color: var(--azul-3) !important;
-}
-footer .container {
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     align-items: center;
-     height: 100%;
-}
-footer div.links {
-     height: 40%;
-     width: 100%;
-     display: grid;
-     grid-template-columns: 1fr 1fr;
-     border-bottom: 1px solid var(--azul-3);
-}
-footer div.links > * {
-     display: flex;
-     gap: 20px;
-     flex-direction: column;
-}
-footer div.links a {
-     text-decoration: none;
-}
-footer .footer {
-     margin-top: 20px;
-     display: flex;
-     width: 100%;
-     justify-content: space-between;
-}
-footer .footer .links {
-     display: flex;
-     gap: 20px;
-}
-footer .footer ul li {
-     list-style: none;
-}
-
 @media (max-width: 740px) {
      .section-1 .container {
           flex-direction: column;

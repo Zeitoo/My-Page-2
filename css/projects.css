@@ -1,0 +1,117 @@
+:root {
+    --text-dark: #0a1c31;
+    --verde: #00ff94;
+    --darkblue: #112d4e;
+    --pink: #ff2e63;
+    --azul-1: #50c4ed;
+    --azul-2: #9ee0e9;
+    --azul-3: #e3fdfd;
+}
+body {
+    --verde: #00ff94;
+    --darkblue: #112d4e;
+    background-color: rgb(242, 246, 255);
+}
+main {
+    padding: 100px 0;
+}
+.title {
+    margin: 100px 0;
+    text-align: center;
+}
+.title h2 {
+    font-size: 2em;
+    font-weight: 600;
+}
+.projects-wrapper {
+    display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: auto;
+        gap: 30px;
+    height: auto;
+}
+.card {
+    transition: translate .3s linear, background-color .1s ease;
+    height: 356px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    display: flex;  
+        flex-direction: column;
+}
+.card:hover {
+    translate: 0px -10px;
+    background-color: rgb(250, 254, 255);
+}
+.card-text {
+    margin-left: 30px;
+    margin-top: 20px;
+    display: flex;
+        flex-direction: column;
+        gap: 20px;
+}
+.card .card-title {
+    color: var(--darkblue);
+    font-size: 0.9em;
+    font-weight: 800;
+}
+.card .img {
+    height: 240px;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.img-1 {
+    background-image: url(../assets/images/projects/password.png);
+}
+.img-2 {
+    background-image: url(../assets/images/projects/multi-step.png);
+}
+.img-3 {
+    background-image: url(../assets/images/projects/Gary-Scale.png);
+}
+.img-4 {
+    background-image: url(../assets/images/projects/skating-class.png);
+}
+.img-5 {
+    background-position: center;
+    background-image: url(../assets/images/projects/Zeitoo.png);
+}
+.img-6 {
+    background-image: url(../assets/images/projects/project1.jpg);
+}
+.btn {
+    
+    padding: 10px 15px;
+    border-radius: 3px;
+    background-color: var(--text-dark);
+    color: white;
+    text-decoration: none;
+    font-size: 0.7em;
+}
+.header-box.expanded {
+    height: 300px !important;
+}
+
+@media (max-width: 740px) {
+    .title p {
+        margin: 10px 0;
+        font-size: .8em;
+    }
+    .projects-wrapper {
+        display: flex;  
+        height: auto;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+    }
+    .card {
+        flex: none;
+        height: 355px !important;
+    }
+    header .language {
+        position: absolute;
+        right: 35%;
+    }
+}
